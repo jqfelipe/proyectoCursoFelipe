@@ -10,7 +10,7 @@ namespace EcomerceApi.Data
   {
     public MedioPago()
     {
-      Ordenes = new HashSet<Ordene>();
+      Ordenes = new HashSet<Orden>();
     }
 
     public int Id { get; set; }
@@ -22,6 +22,6 @@ namespace EcomerceApi.Data
     public int IdUsuario { get; set; }
 
     [JsonIgnore]
-    public virtual ICollection<Ordene> Ordenes { get; set; }
+    public virtual ICollection<Orden> Ordenes { get; set; }
   }
 }

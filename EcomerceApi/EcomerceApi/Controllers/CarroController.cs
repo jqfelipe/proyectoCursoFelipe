@@ -1,4 +1,5 @@
 ﻿using EcomerceApi.Data;
+using EcomerceApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,17 @@ namespace EcomerceApi.Controllers
     {
       var datos = dbContext.Carros.ToArray();
       return Ok(datos);
+    }
+
+    [HttpGet("{correo}/carroitems")]
+    public ActionResult<IEnumerable<Carro>> GetByIdCorreo(string correo)
+    {
+      var compraModel = new CompraModels(dbContext);
+      var result = compraModel.ObtenerCarro(correo);
+      if(!result.Any())
+        return NotFound();      
+
+      return Ok(result);
     }
 
     [HttpGet("{id}")]

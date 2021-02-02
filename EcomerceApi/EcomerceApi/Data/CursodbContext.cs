@@ -21,7 +21,7 @@ namespace EcomerceApi.Data
         public virtual DbSet<Carro> Carros { get; set; }
         public virtual DbSet<Inventario> Inventarios { get; set; }
         public virtual DbSet<MedioPago> MedioPagos { get; set; }
-        public virtual DbSet<Ordene> Ordenes { get; set; }
+        public virtual DbSet<Orden> Ordenes { get; set; }
         public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
 
@@ -105,11 +105,11 @@ namespace EcomerceApi.Data
                     .HasMaxLength(10);
             });
 
-            modelBuilder.Entity<Ordene>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedNever();
+            modelBuilder.Entity<Orden>(entity =>
+            {                
+              entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Correo)
+              entity.Property(e => e.Correo)
                     .IsRequired()
                     .HasMaxLength(50);
 

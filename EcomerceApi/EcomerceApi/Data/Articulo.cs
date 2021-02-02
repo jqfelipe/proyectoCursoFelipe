@@ -11,7 +11,7 @@ namespace EcomerceApi.Data
     public Articulo()
     {
       Carros = new HashSet<Carro>();
-      Ordenes = new HashSet<Ordene>();
+      Ordenes = new HashSet<Orden>();
     }
 
     public int Id { get; set; }
@@ -26,6 +26,6 @@ namespace EcomerceApi.Data
     public virtual ICollection<Carro> Carros { get; set; }
 
     [JsonIgnore]
-    public virtual ICollection<Ordene> Ordenes { get; set; }
+    public virtual ICollection<Orden> Ordenes { get; set; }
   }
 }
